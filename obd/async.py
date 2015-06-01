@@ -31,7 +31,7 @@
 
 import time
 import threading
-from .utils import Response
+from .utils import OBDResponse
 from .debug import debug
 from . import OBD
 
@@ -43,7 +43,7 @@ class Async(OBD):
 
     def __init__(self, portstr=None, baudrate=38400):
         super(Async, self).__init__(portstr, baudrate)
-        self.commands  = {} # key = OBDCommand, value = Response
+        self.commands  = {} # key = OBDCommand, value = OBDResponse
         self.callbacks = {} # key = OBDCommand, value = list of Functions
         self.thread    = None
         self.running   = False
@@ -99,7 +99,7 @@ class Async(OBD):
             # new command being watched, store the command
             if c not in self.commands:
                 debug("Watching command: %s" % str(c))
-                self.commands[c] = Response() # give it an initial value
+                self.commands[c] = OBDResponse() # give it an initial value
                 self.callbacks[c] = [] # create an empty list
 
             # if a callback was given, push it
@@ -156,7 +156,7 @@ class Async(OBD):
         if c in self.commands:
             return self.commands[c]
         else:
-            return Response()
+            return OBDResponse()
 
 
     def run(self):
