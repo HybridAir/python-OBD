@@ -42,11 +42,11 @@ class Async(OBD):
     """
 
     def __init__(self, portstr=None, baudrate=38400):
-        super(Async, self).__init__(portstr, baudrate)
         self.commands  = {} # key = OBDCommand, value = OBDResponse
         self.callbacks = {} # key = OBDCommand, value = list of Functions
         self.thread    = None
         self.running   = False
+        super(Async, self).__init__(portstr, baudrate)
 
 
     def start(self):
