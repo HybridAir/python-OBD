@@ -1,3 +1,5 @@
+Modified to better suit the needs of the carbt_v1 project
+
 python-OBD
 ==========
 
