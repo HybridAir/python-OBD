@@ -206,7 +206,11 @@ def fuel_rate(_hex):
     v = unhex(_hex)
     v = v * 0.05
     return (v, Unit.LPH)
-
+	
+	
+#returns the current gear, 1-4
+def gear(_hex):
+	return (_hex[3:], Unit.NONE)
 
 '''
 Special decoders
