@@ -211,7 +211,7 @@ class Async(OBD):
                 for c in self.__commands:
 
                     # force, since commands are checked for support in watch()
-                    r = super(Async, self).query(c, force=True)
+                    r = super(Async, self).query(c, force=True)         #this calls the query in obd.py
 
                     # store the response
                     self.__commands[c] = r

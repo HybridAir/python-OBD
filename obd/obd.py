@@ -190,6 +190,13 @@ class OBD(object):
 
         # check that the command is supported
         if self.supports(c) or force:
+            #check for the header in here
+            
+            if c.header != None:          #if we got a header from the above
+                debug("GOT HEADER: " + str(c.header), True)
+            else:
+                debug("No header.", True)
+        
             return self.__send(c)
         else:
             debug("'%s' is not supported" % str(c), True)

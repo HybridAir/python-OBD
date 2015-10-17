@@ -35,7 +35,7 @@ from .debug import debug
 
 
 class OBDCommand():
-    def __init__(self, name, desc, mode, pid, returnBytes, decoder, supported=False):
+    def __init__(self, name, desc, mode, pid, returnBytes, decoder, supported=False, header=None):
         self.name       = name
         self.desc       = desc
         self.mode       = mode
@@ -43,6 +43,8 @@ class OBDCommand():
         self.bytes      = returnBytes # number of bytes expected in return
         self.decode     = decoder
         self.supported  = supported
+		
+		self.header = header
 
     def clone(self):
         return OBDCommand(self.name,
@@ -50,7 +52,8 @@ class OBDCommand():
                           self.mode,
                           self.pid,
                           self.bytes,
-                          self.decode)
+                          self.decode
+						  self.header)
 
     def get_command(self):
         return self.mode + self.pid # the actual command transmitted to the port
@@ -61,8 +64,7 @@ class OBDCommand():
     def get_pid_int(self):
         return unhex(self.pid)
 
-    def __call__(self, message):
-
+    def __call__(self, message):	
         # create the response object with the raw data recieved
         # and reference to original command
         r = Response(self, message)
