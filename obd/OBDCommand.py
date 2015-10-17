@@ -52,7 +52,7 @@ class OBDCommand():
                           self.mode,
                           self.pid,
                           self.bytes,
-                          self.decode
+                          self.decode,
                           self.header)
 
     def get_command(self):
