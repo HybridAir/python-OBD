@@ -282,6 +282,13 @@ class ELM327:
                 return message
 
         return None # no suitable response was returned
+        
+        
+    def sendHeader(self, header):
+        r = self.__send("ATSH " + str(header))
+        if not self.__isok(r):
+            self.__error("ATSH did not return 'OK'")
+            return
 
 
     def __send(self, cmd, delay=None):

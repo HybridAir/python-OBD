@@ -35,7 +35,7 @@ from .debug import debug
 
 
 class OBDCommand():
-    def __init__(self, name, desc, mode, pid, returnBytes, decoder, supported=False, header=None):
+    def __init__(self, name, desc, mode, pid, returnBytes, decoder, header=None, supported=False):
         self.name       = name
         self.desc       = desc
         self.mode       = mode
