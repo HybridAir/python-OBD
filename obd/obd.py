@@ -44,7 +44,7 @@ class OBD(object):
         Class representing an OBD-II connection with it's assorted commands/sensors
     """
 
-    def __init__(self, portstr=None, baudrate=38400):
+    def __init__(self, portstr=None, baudrate=9600):
         self.port = None
         self.supported_commands = []
 
