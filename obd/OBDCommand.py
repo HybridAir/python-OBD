@@ -43,8 +43,8 @@ class OBDCommand():
         self.bytes      = returnBytes # number of bytes expected in return
         self.decode     = decoder
         self.supported  = supported
-		
-		self.header = header
+        
+        self.header = header
 
     def clone(self):
         return OBDCommand(self.name,
@@ -53,7 +53,7 @@ class OBDCommand():
                           self.pid,
                           self.bytes,
                           self.decode
-						  self.header)
+                          self.header)
 
     def get_command(self):
         return self.mode + self.pid # the actual command transmitted to the port
@@ -64,7 +64,7 @@ class OBDCommand():
     def get_pid_int(self):
         return unhex(self.pid)
 
-    def __call__(self, message):	
+    def __call__(self, message):    
         # create the response object with the raw data recieved
         # and reference to original command
         r = Response(self, message)
