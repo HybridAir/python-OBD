@@ -146,7 +146,8 @@ __mode1__ = [
     OBDCommand("FUEL_RATE"                  , "Engine fuel rate"                        , "01", "5E", 2, fuel_rate             ),
     OBDCommand("EMISSION_REQ"               , "Designed emission requirements"          , "01", "5F", 1, noop                  ),
 
-	OBDCommand("CURRENT_GEAR"               , "Current transmission gear"               , "22", "199A01", 2, gear, "6C10F1"    )
+	OBDCommand("CURRENT_GEAR"               , "Current transmission gear"               , "22", "199A01", 2, gear, "6C10F1"    ),
+	OBDCommand("VOLTAGE"                    , "Input voltage"                           , "AT", "RV", 5, voltage               )
 ]
 
 

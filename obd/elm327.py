@@ -266,9 +266,10 @@ class ELM327:
             debug("cannot send_and_parse() when unconnected", True)
             return None
 
-        if "AT" in cmd.upper():
-            debug("Rejected sending AT command", True)
-            return None
+        #disabling you becuase fuck you
+        # if "AT" in cmd.upper():
+            # debug("Rejected sending AT command", True)
+            # return None
 
         lines = self.__send(cmd, delay)
 

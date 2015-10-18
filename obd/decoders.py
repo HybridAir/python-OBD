@@ -210,7 +210,12 @@ def fuel_rate(_hex):
 	
 #returns the current gear, 1-4
 def gear(_hex):
-	return (_hex[3:], Unit.NONE)
+	return(_hex[3:], Unit.NONE)
+
+def voltage(_hex):
+	v = str(unhex(_hex))
+	v = v[:-1]
+	return(v, Unit.VOLT)
 
 '''
 Special decoders
