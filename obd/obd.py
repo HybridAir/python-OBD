@@ -193,10 +193,7 @@ class OBD(object):
             #check for the header in here
             
             if c.header != None:          #if we got a header from the above
-                debug("GOT HEADER: " + str(c.header), True)
                 self.port.sendHeader(c.header)
-            else:
-                debug("No header.", True)
         
             return self.__send(c)
         else:
